@@ -9,20 +9,22 @@ import { useRef, useState } from "react";
 
 const experiences = [
   {
-    role: "Head Fitness Trainer",
-    company: "Apex Gym, New York",
-    period: "2020 - Present",
+    role: "Fitness Trainer",
+    company: "Warrior Gym, Mandi, Himachal Pradesh",
+    period: "2024",
     description: "Lead trainer for high-performance athletes, responsible for personalized program design and nutrition planning. Increased client retention by 40%.",
   },
   {
     role: "Personal Trainer",
-    company: "Core Strength Center, Miami",
+    company: "Warrior Gym, Mandi, Himachal Pradesh",
     period: "2018 - 2020",
     description: "Provided one-on-one and group training sessions. Specialized in functional strength and HIIT workouts.",
   },
 ];
 
 const certifications = [
+  "Fresher",
+  "5 months experience in Warrior Gym, Mandi since 2021",
   "Certified Personal Trainer (CPT) - NASM",
   "Corrective Exercise Specialist (CES) - NASM",
   "Certified Nutrition Coach (CNC) - Precision Nutrition",
@@ -30,7 +32,7 @@ const certifications = [
 ];
 
 const skills = [
-  "Strength & Conditioning", "HIIT", "Functional Training", "Bodybuilding",
+  "Strength & Conditioning", "Functional Training", "Bodybuilding",
   "Nutrition Planning", "Client Motivation", "Corrective Exercise", "Group Fitness"
 ];
 
