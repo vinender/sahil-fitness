@@ -23,7 +23,7 @@ const experiences = [
 ];
 
 const certifications = [
-  "Fresher",
+  "Officially certified, unofficially awesome from day one.",
   "5 months experience in Warrior Gym, Mandi 2021",
 ];
 
