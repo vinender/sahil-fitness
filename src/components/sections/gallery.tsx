@@ -2,27 +2,45 @@ import Image from "next/image";
 
 const galleryImages = [
   {
-    src: "https://i.ibb.co/wJv0wJd/tim-miel-9-C-o-S-b3-Xp8-unsplash.jpg",
+    src: "/3.jpg",
     alt: "Athlete posing after a competition",
     hint: "bodybuilding pose",
     className: "md:col-span-1",
   },
   {
-    src: "https://i.ibb.co/mS3p4kF/jason-briscoe-y-I9-ECW8-D-AE-unsplash.jpg",
+    src: "/4.jpg",
     alt: "Athlete during a heavy lifting session",
     hint: "gym workout",
     className: "md:col-span-2",
   },
   {
-    src: "https://i.ibb.co/C2qj5fh/gordon-cowie-K4-R-b-C4-Mns-unsplash.jpg",
+    src: "/5.jpg",
     alt: "Athlete in a dynamic action shot",
     hint: "fitness action",
     className: "md:col-span-2",
   },
   {
-    src: "https://i.ibb.co/tTn1Rw2/sven-mieke-Lx-GDv8-Inset-A-unsplash.jpg",
+    src: "/6.jpg",
     alt: "Candid shot of the athlete resting between sets",
     hint: "fitness candid",
+    className: "md:col-span-1",
+  },
+  {
+    src: "/7.jpg",
+    alt: "Athlete during an outdoor workout",
+    hint: "outdoor fitness",
+    className: "md:col-span-1",
+  },
+    {
+    src: "/8.jpg",
+    alt: "Close-up of athlete's focused expression",
+    hint: "fitness intense",
+    className: "md:col-span-1",
+  },
+    {
+    src: "/9.jpg",
+    alt: "Athlete holding weights",
+    hint: "lifting weights",
     className: "md:col-span-1",
   },
 ];
@@ -36,7 +54,7 @@ export function Gallery() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {galleryImages.map((image, index) => (
-            <div key={index} className={`overflow-hidden ${image.className}`}>
+            <div key={index} className={`overflow-hidden rounded-md shadow-lg ${image.className}`}>
                <Image
                 src={image.src}
                 alt={image.alt}

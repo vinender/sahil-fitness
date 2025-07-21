@@ -9,7 +9,7 @@ const mediaItems = [
   {
     type: "Article",
     icon: Newspaper,
-    image: "https://i.ibb.co/wJv0wJd/tim-miel-9-C-o-S-b3-Xp8-unsplash.jpg",
+    image: "/10.jpg",
     hint: "magazine cover",
     title: "The Rise of a Fitness Icon: Sahil Fitness's Journey",
     source: "Fitness Weekly Magazine",
@@ -18,7 +18,7 @@ const mediaItems = [
   {
     type: "Video",
     icon: Youtube,
-    image: "https://i.ibb.co/mS3p4kF/jason-briscoe-y-I9-ECW8-D-AE-unsplash.jpg",
+    image: "/4.jpg",
     hint: "youtube thumbnail",
     title: "A Day in the Life: Training with Sahil Fitness",
     source: "YouTube Originals",
@@ -27,7 +27,7 @@ const mediaItems = [
   {
     type: "Podcast",
     icon: Newspaper,
-    image: "https://i.ibb.co/C2qj5fh/gordon-cowie-K4-R-b-C4-Mns-unsplash.jpg",
+    image: "/5.jpg",
     hint: "podcast logo",
     title: "Mind Over Muscle: The Philosophy of a Champion",
     source: "The Performance Podcast",
@@ -44,7 +44,7 @@ export function FeaturedMedia() {
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {mediaItems.map((item, index) => (
-            <Card key={index} className="flex flex-col shadow-lg overflow-hidden group">
+            <Card key={index} className="flex flex-col shadow-lg overflow-hidden group rounded-lg">
               <CardHeader className="p-0">
                 <div className="relative">
                   <Image

@@ -1,9 +1,11 @@
 "use client";
 
-import { Award, Briefcase, Star, Download } from "lucide-react";
+import { Download, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { downloadResume } from "@/app/actions";
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
+import { useRef, useState } from "react";
 
 const experiences = [
   {
@@ -36,26 +38,41 @@ const SectionTitle = ({ title }: { title: string }) => (
     <h3 className="text-3xl font-bold tracking-tight mb-8">{title}</h3>
 );
 
-const handleDownload = async () => {
-    const { content, filename } = await downloadResume();
-    const blob = new Blob([content], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = filename;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-  };
-
 export function Resume() {
+    const resumeRef = useRef<HTMLDivElement>(null);
+    const [isDownloading, setIsDownloading] = useState(false);
+
+    const handleDownload = async () => {
+        setIsDownloading(true);
+        const input = resumeRef.current;
+        if (input) {
+            try {
+                const canvas = await html2canvas(input, {
+                    scale: 2,
+                    useCORS: true, 
+                    backgroundColor: null,
+                });
+                const imgData = canvas.toDataURL('image/png');
+                const pdf = new jsPDF({
+                    orientation: 'portrait',
+                    unit: 'px',
+                    format: [canvas.width, canvas.height]
+                });
+                pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
+                pdf.save('SahilFitness-Resume.pdf');
+            } catch (error) {
+                console.error("Error generating PDF:", error);
+            }
+        }
+        setIsDownloading(false);
+    };
+
   return (
     <section id="resume" className="py-24 md:py-32 bg-background">
-      <div className="container grid md:grid-cols-3 gap-16 items-start">
+      <div className="container grid md:grid-cols-3 gap-16 items-start" ref={resumeRef}>
         <div className="md:col-span-1 space-y-8 sticky top-24">
              <Image
-                src="https://i.ibb.co/6y18mJg/sven-mieke-Lx-GDv8-Inset-A-unsplash.jpg"
+                src="/2.jpg"
                 alt="Sahil Fitness portrait"
                 data-ai-hint="fitness portrait"
                 width={800}
@@ -96,9 +113,18 @@ export function Resume() {
                   ))}
                 </div>
             </div>
-             <Button onClick={handleDownload} className="w-full font-bold rounded-none" size="lg">
-                <Download className="mr-2 h-5 w-5" />
-                Download Resume
+             <Button onClick={handleDownload} disabled={isDownloading} className="w-full font-bold rounded-none mt-8" size="lg">
+                {isDownloading ? (
+                  <>
+                    <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                    Downloading...
+                  </>
+                ) : (
+                  <>
+                    <Download className="mr-2 h-5 w-5" />
+                    Download Resume PDF
+                  </>
+                )}
               </Button>
           </div>
       </div>
