@@ -25,7 +25,7 @@ export default function Footer() {
     <footer className="bg-background border-t">
       <div className="container py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-2">
-          <span className="font-bold text-lg uppercase tracking-widest">Alex Steel</span>
+          <span className="font-bold text-lg tracking-widest">SAHIL FITNESS</span>
         </div>
         <p className="text-xs text-muted-foreground uppercase tracking-wider">
           © {new Date().getFullYear()} All rights reserved.

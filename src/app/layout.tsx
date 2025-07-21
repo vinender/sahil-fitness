@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Manrope } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"], display: "swap" });
+
+const manrope = Manrope({ subsets: ["latin"], display: "swap" });
 
 export const metadata: Metadata = {
-  title: "FitPro Showcase",
-  description: "The professional portfolio for top-tier fitness athletes.",
+  title: "Sahil Fitness",
+  description: "The professional portfolio for Sahil Fitness.",
 };
 
 export default function RootLayout({
@@ -17,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.className} antialiased`}>
+      <body className={`${manrope.className} antialiased`}>
         {children}
         <Toaster />
       </body>

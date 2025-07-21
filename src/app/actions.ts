@@ -32,7 +32,7 @@ export async function submitContactForm(prevState: any, formData: FormData) {
 
 export async function downloadResume() {
   const resume = `
-Alex Steel - Certified Fitness Trainer & Lifestyle Influencer
+Sahil Fitness - Certified Fitness Trainer & Lifestyle Influencer
 
 ---
 Experience
@@ -62,6 +62,6 @@ Strength & Conditioning, HIIT, Functional Training, Bodybuilding, Nutrition Plan
 
   return {
     content: resume,
-    filename: 'AlexSteel-Resume.txt',
+    filename: 'SahilFitness-Resume.txt',
   }
 }

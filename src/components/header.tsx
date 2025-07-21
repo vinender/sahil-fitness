@@ -17,12 +17,12 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-20 items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 font-bold text-xl uppercase tracking-widest">
-          Alex Steel
+        <Link href="/" className="flex items-center gap-2 font-bold text-xl tracking-widest">
+          SAHIL FITNESS
         </Link>
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium uppercase tracking-wider">
+        <nav className="hidden md:flex items-center gap-8 text-sm font-medium tracking-wider">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -45,7 +45,7 @@ export default function Header() {
       </div>
       {isMenuOpen && (
         <div className="md:hidden">
-          <nav className="flex flex-col items-center gap-6 py-6 text-lg font-medium uppercase tracking-wider">
+          <nav className="flex flex-col items-center gap-6 py-6 text-lg font-medium tracking-wider">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
