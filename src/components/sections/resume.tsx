@@ -55,7 +55,7 @@ export function Resume() {
       <div className="container grid md:grid-cols-3 gap-16 items-start">
         <div className="md:col-span-1 space-y-8 sticky top-24">
              <Image
-                src="https://placehold.co/800x1000"
+                src="https://i.ibb.co/6y18mJg/sven-mieke-Lx-GDv8-Inset-A-unsplash.jpg"
                 alt="Sahil Fitness portrait"
                 data-ai-hint="fitness portrait"
                 width={800}
