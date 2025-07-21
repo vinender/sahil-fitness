@@ -2,9 +2,9 @@ import Image from "next/image";
 
 const galleryImages = [
   {
-    src: "/3.jpg",
-    alt: "Athlete posing after a competition",
-    hint: "bodybuilding pose",
+    src: "/bicep.jpeg",
+    alt: "Athlete showing bicep",
+    hint: "bicep flex",
     className: "md:col-span-1",
   },
   {
