@@ -24,11 +24,7 @@ const experiences = [
 
 const certifications = [
   "Fresher",
-  "5 months experience in Warrior Gym, Mandi since 2021",
-  "Certified Personal Trainer (CPT) - NASM",
-  "Corrective Exercise Specialist (CES) - NASM",
-  "Certified Nutrition Coach (CNC) - Precision Nutrition",
-  "First Aid & CPR/AED Certified - Red Cross",
+  "5 months experience in Warrior Gym, Mandi 2021",
 ];
 
 const skills = [

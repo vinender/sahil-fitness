@@ -1,22 +1,12 @@
-import { Twitter, Instagram, Linkedin } from "lucide-react";
+import { Instagram } from "lucide-react";
 import Link from "next/link";
 import { Button } from "./ui/button";
 
 const socialLinks = [
   {
-    href: "https://twitter.com",
-    icon: Twitter,
-    label: "Twitter",
-  },
-  {
-    href: "https://instagram.com",
+    href: "https://www.instagram.com/_leveling._.up_?igsh=MW5xb24ybjM5cnd6Mw==",
     icon: Instagram,
     label: "Instagram",
-  },
-  {
-    href: "https://linkedin.com",
-    icon: Linkedin,
-    label: "LinkedIn",
   },
 ];
 
