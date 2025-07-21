@@ -62,7 +62,7 @@ export function FeaturedMedia() {
                 </div>
               </CardHeader>
               <CardContent className="p-6 flex-grow">
-                <CardTitle className="font-headline text-xl mb-2">{item.title}</CardTitle>
+                <CardTitle className="font-headline text-lg md:text-xl mb-2">{item.title}</CardTitle>
                 <p className="text-sm text-muted-foreground">{item.source}</p>
               </CardContent>
               <CardFooter className="p-6 pt-0">

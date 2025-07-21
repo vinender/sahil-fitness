@@ -56,13 +56,13 @@ export function Contact() {
           <h2 className="font-headline text-3xl md:text-4xl font-bold">
             Let's Connect
           </h2>
-          <p className="max-w-2xl mx-auto text-primary-foreground/80 mt-4">
+          <p className="max-w-2xl mx-auto text-primary-foreground/80 mt-4 px-4">
             Have a question, a project proposal, or just want to say hi? Send me a message, and I'll get back to you as soon as possible.
           </p>
         </div>
         <Card className="max-w-xl mx-auto bg-card/10 border-border/20">
           <CardHeader>
-            <CardTitle className="flex items-center gap-3">
+            <CardTitle className="flex items-center gap-3 text-2xl">
               <Mail className="w-6 h-6" />
               Contact Form
             </CardTitle>

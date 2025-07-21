@@ -33,7 +33,7 @@ const skills = [
 ];
 
 const SectionTitle = ({ title }: { title: string }) => (
-    <h3 className="text-3xl font-bold tracking-tight mb-8">{title}</h3>
+    <h3 className="text-2xl md:text-3xl font-bold tracking-tight mb-8">{title}</h3>
 );
 
 export function Resume() {
@@ -66,9 +66,9 @@ export function Resume() {
     };
 
   return (
-    <section id="resume" className="py-24 md:py-32 bg-background">
-      <div className="container grid md:grid-cols-3 gap-16 items-start" ref={resumeRef}>
-        <div className="md:col-span-1 space-y-8 sticky top-24">
+    <section id="resume" className="py-16 md:py-32 bg-background">
+      <div className="container grid md:grid-cols-3 gap-12 md:gap-16 items-start">
+        <div className="md:col-span-1 space-y-8 md:sticky md:top-24">
              <Image
                 src="/2.jpg"
                 alt="Sahil Fitness portrait"
@@ -78,7 +78,7 @@ export function Resume() {
                 className="w-full h-auto object-cover grayscale"
               />
         </div>
-        <div className="md:col-span-2 space-y-16">
+        <div className="md:col-span-2 space-y-12 md:space-y-16" ref={resumeRef}>
             <div>
               <SectionTitle title="Experience" />
               <div className="space-y-8">

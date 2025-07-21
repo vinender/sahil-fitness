@@ -49,7 +49,7 @@ export function Gallery() {
   return (
     <section id="gallery" className="py-16 md:py-24 bg-background">
       <div className="container">
-        <h2 className="text-center text-3xl md:text-4xl font-light uppercase tracking-widest mb-12">
+        <h2 className="text-center text-2xl md:text-4xl font-light uppercase tracking-widest mb-12">
           Gallery
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

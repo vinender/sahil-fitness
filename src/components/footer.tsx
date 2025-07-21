@@ -14,10 +14,10 @@ export default function Footer() {
   return (
     <footer className="bg-background border-t">
       <div className="container py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div className="flex items-center gap-2">
-          <span className="font-bold text-lg tracking-widest">SAHIL FITNESS</span>
+        <div className="flex items-center gap-2 text-center sm:text-left">
+          <span className="font-bold text-base md:text-lg tracking-widest">SAHIL FITNESS</span>
         </div>
-        <p className="text-xs text-muted-foreground uppercase tracking-wider">
+        <p className="text-xs text-muted-foreground uppercase tracking-wider text-center">
           © {new Date().getFullYear()} All rights reserved.
         </p>
         <div className="flex items-center gap-2">

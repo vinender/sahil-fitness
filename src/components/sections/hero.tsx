@@ -48,15 +48,15 @@ export function Hero() {
       </div>
       <div className="container relative z-10">
         <Slide direction="up" triggerOnce>
-          <p className="text-lg md:text-xl text-white/80 mb-4 tracking-widest uppercase font-light">
+          <p className="text-base md:text-xl text-white/80 mb-4 tracking-widest uppercase font-light">
             Fitness Professional & Lifestyle Influencer
           </p>
-          <h1 className="text-6xl md:text-9xl font-extrabold tracking-tighter mb-8">
+          <h1 className="text-5xl md:text-9xl font-extrabold tracking-tighter mb-8">
             SAHIL FITNESS
           </h1>
         </Slide>
         <Fade delay={500} triggerOnce>
-          <Button size="lg" variant="outline" asChild className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-black rounded-none px-12 py-6 text-base font-semibold tracking-widest">
+          <Button size="lg" variant="outline" asChild className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-black rounded-none px-10 py-5 text-sm md:px-12 md:py-6 md:text-base font-semibold tracking-widest">
             <Link href="#resume">
               Explore
             </Link>
