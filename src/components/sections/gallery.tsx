@@ -1,43 +1,29 @@
 import Image from "next/image";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import { Card, CardContent } from "@/components/ui/card";
 
 const galleryImages = [
   {
-    src: "https://placehold.co/600x800",
+    src: "https://placehold.co/800x1200",
     alt: "Athlete posing after a competition",
     hint: "bodybuilding pose",
-    caption: "Championship Win 2023",
+    className: "md:col-span-1",
   },
   {
-    src: "https://placehold.co/800x600",
+    src: "https://placehold.co/1200x800",
     alt: "Athlete during a heavy lifting session",
     hint: "gym workout",
-    caption: "Pushing the Limits",
+    className: "md:col-span-2",
   },
   {
-    src: "https://placehold.co/600x800",
+    src: "https://placehold.co/1200x800",
     alt: "Athlete in a dynamic action shot",
     hint: "fitness action",
-    caption: "Explosive Power",
+    className: "md:col-span-2",
   },
   {
-    src: "https://placehold.co/800x600",
-    alt: "Athlete leading a group training session",
-    hint: "group fitness",
-    caption: "Inspiring Others",
-  },
-  {
-    src: "https://placehold.co/600x800",
+    src: "https://placehold.co/800x1200",
     alt: "Candid shot of the athlete resting between sets",
     hint: "fitness candid",
-    caption: "Focus and Determination",
+    className: "md:col-span-1",
   },
 ];
 
@@ -45,41 +31,23 @@ export function Gallery() {
   return (
     <section id="gallery" className="py-16 md:py-24 bg-background">
       <div className="container">
-        <h2 className="text-center font-headline text-3xl md:text-4xl font-bold mb-12">
-          Photo Gallery
+        <h2 className="text-center text-3xl md:text-4xl font-light uppercase tracking-widest mb-12">
+          Gallery
         </h2>
-        <Carousel
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-          className="w-full"
-        >
-          <CarouselContent>
-            {galleryImages.map((image, index) => (
-              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                <Card className="overflow-hidden shadow-lg group">
-                  <CardContent className="p-0 relative">
-                    <Image
-                      src={image.src}
-                      alt={image.alt}
-                      data-ai-hint={image.hint}
-                      width={800}
-                      height={600}
-                      className="aspect-[3/4] object-cover w-full transition-transform duration-300 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <p className="absolute bottom-4 left-4 text-white font-bold text-lg font-headline">
-                      {image.caption}
-                    </p>
-                  </CardContent>
-                </Card>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious className="hidden sm:flex" />
-          <CarouselNext className="hidden sm:flex" />
-        </Carousel>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {galleryImages.map((image, index) => (
+            <div key={index} className={`overflow-hidden ${image.className}`}>
+               <Image
+                src={image.src}
+                alt={image.alt}
+                data-ai-hint={image.hint}
+                width={1200}
+                height={800}
+                className="w-full h-full object-cover transition-transform duration-300 ease-in-out hover:scale-105"
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

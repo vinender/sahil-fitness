@@ -1,6 +1,9 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Award, Briefcase, Star, HeartPulse } from "lucide-react";
+"use client";
+
+import { Award, Briefcase, Star, Download } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import { downloadResume } from "@/app/actions";
 
 const experiences = [
   {
@@ -18,10 +21,10 @@ const experiences = [
 ];
 
 const certifications = [
-  { name: "Certified Personal Trainer (CPT)", issuer: "NASM" },
-  { name: "Corrective Exercise Specialist (CES)", issuer: "NASM" },
-  { name: "Certified Nutrition Coach (CNC)", issuer: "Precision Nutrition" },
-  { name: "First Aid & CPR/AED Certified", issuer: "Red Cross" },
+  "Certified Personal Trainer (CPT) - NASM",
+  "Corrective Exercise Specialist (CES) - NASM",
+  "Certified Nutrition Coach (CNC) - Precision Nutrition",
+  "First Aid & CPR/AED Certified - Red Cross",
 ];
 
 const skills = [
@@ -30,77 +33,79 @@ const skills = [
 ];
 
 const SectionTitle = ({ icon: Icon, title }: { icon: React.ElementType, title: string }) => (
-  <div className="flex items-center gap-3">
-    <Icon className="w-8 h-8 text-accent" />
-    <h3 className="font-headline text-2xl font-semibold">{title}</h3>
+  <div className="flex items-center gap-3 mb-6">
+    <Icon className="w-7 h-7 text-primary" />
+    <h3 className="text-2xl font-light uppercase tracking-wider">{title}</h3>
   </div>
 );
+
+const handleDownload = async () => {
+    const { content, filename } = await downloadResume();
+    const blob = new Blob([content], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
 
 export function Resume() {
   return (
     <section id="resume" className="py-16 md:py-24 bg-secondary">
       <div className="container">
-        <h2 className="text-center font-headline text-3xl md:text-4xl font-bold mb-12">
-          Professional Resume
-        </h2>
-        <div className="grid md:grid-cols-2 gap-8">
-          <Card className="shadow-lg">
-            <CardHeader>
-              <CardTitle>
-                <SectionTitle icon={Briefcase} title="Experience" />
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              {experiences.map((exp, index) => (
-                <div key={index} className="relative pl-6">
-                  <div className="absolute left-0 top-1 h-full w-0.5 bg-border"></div>
-                  <div className="absolute left-[-5px] top-1 h-3 w-3 rounded-full bg-accent"></div>
-                  <h4 className="font-bold">{exp.role}</h4>
-                  <p className="text-sm text-muted-foreground">{exp.company} | {exp.period}</p>
-                  <p className="mt-1 text-sm">{exp.description}</p>
-                </div>
-              ))}
-            </CardContent>
-          </Card>
+        <div className="grid lg:grid-cols-3 gap-12 lg:gap-16 items-start">
+          <div className="lg:col-span-2 space-y-12">
+            <div>
+              <SectionTitle icon={Briefcase} title="Experience" />
+              <div className="space-y-8 border-l-2 border-primary/20 pl-6">
+                {experiences.map((exp, index) => (
+                  <div key={index} className="relative">
+                     <div className="absolute -left-[34px] top-1 h-3 w-3 rounded-full bg-primary"></div>
+                    <h4 className="font-semibold text-lg">{exp.role}</h4>
+                    <p className="text-sm text-muted-foreground">{exp.company} | {exp.period}</p>
+                    <p className="mt-2 text-sm">{exp.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-          <div className="space-y-8">
-            <Card className="shadow-lg">
-              <CardHeader>
-                <CardTitle>
-                  <SectionTitle icon={Award} title="Certifications" />
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
+            <div>
+              <SectionTitle icon={Award} title="Certifications" />
+               <ul className="space-y-2 text-sm">
                   {certifications.map((cert, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <Award className="w-5 h-5 mt-0.5 text-accent flex-shrink-0" />
-                      <div>
-                        <p className="font-semibold">{cert.name}</p>
-                        <p className="text-sm text-muted-foreground">{cert.issuer}</p>
-                      </div>
-                    </li>
+                    <li key={index}>{cert}</li>
                   ))}
                 </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="shadow-lg">
-              <CardHeader>
-                <CardTitle>
-                  <SectionTitle icon={Star} title="Skills" />
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
+            </div>
+            
+             <div>
+              <SectionTitle icon={Star} title="Skills" />
                 <div className="flex flex-wrap gap-2">
                   {skills.map((skill) => (
-                    <Badge key={skill} variant="outline" className="text-sm bg-background">
+                    <div key={skill} className="text-sm font-medium border border-border rounded-full px-3 py-1 bg-background">
                       {skill}
-                    </Badge>
+                    </div>
                   ))}
                 </div>
-              </CardContent>
-            </Card>
+            </div>
+          </div>
+
+          <div className="lg:col-span-1 space-y-8 sticky top-24">
+             <Image
+                src="https://placehold.co/800x1000"
+                alt="Alex Steel portrait"
+                data-ai-hint="fitness portrait"
+                width={800}
+                height={1000}
+                className="w-full h-auto object-cover"
+              />
+              <Button onClick={handleDownload} className="w-full" size="lg">
+                <Download className="mr-2 h-5 w-5" />
+                Download Resume
+              </Button>
           </div>
         </div>
       </div>

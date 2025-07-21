@@ -1,4 +1,4 @@
-import { Twitter, Instagram, Linkedin, Dumbbell } from "lucide-react";
+import { Twitter, Instagram, Linkedin } from "lucide-react";
 import Link from "next/link";
 import { Button } from "./ui/button";
 
@@ -22,12 +22,14 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-secondary">
+    <footer className="bg-background border-t">
       <div className="container py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-2">
-          <Dumbbell className="h-6 w-6 text-accent" />
-          <span className="font-bold font-headline">FitPro Showcase</span>
+          <span className="font-bold text-lg uppercase tracking-widest">Alex Steel</span>
         </div>
+        <p className="text-xs text-muted-foreground uppercase tracking-wider">
+          © {new Date().getFullYear()} All rights reserved.
+        </p>
         <div className="flex items-center gap-2">
           {socialLinks.map(({ href, icon: Icon, label }) => (
             <Button
@@ -43,9 +45,6 @@ export default function Footer() {
             </Button>
           ))}
         </div>
-        <p className="text-sm text-muted-foreground">
-          © {new Date().getFullYear()} FitPro Showcase. All rights reserved.
-        </p>
       </div>
     </footer>
   );

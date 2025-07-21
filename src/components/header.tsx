@@ -1,6 +1,6 @@
 "use client";
 
-import { Dumbbell, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { Button } from "./ui/button";
@@ -10,7 +10,6 @@ const navLinks = [
   { href: "#resume", label: "Resume" },
   { href: "#gallery", label: "Gallery" },
   { href: "#media", label: "Media" },
-  { href: "#ai-tool", label: "AI Tool" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -18,18 +17,17 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 font-bold text-lg">
-          <Dumbbell className="h-6 w-6 text-accent" />
-          <span className="font-headline">FitPro Showcase</span>
+    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex h-20 items-center justify-between">
+        <Link href="/" className="flex items-center gap-2 font-bold text-xl uppercase tracking-widest">
+          Alex Steel
         </Link>
-        <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
+        <nav className="hidden md:flex items-center gap-8 text-sm font-medium uppercase tracking-wider">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="transition-colors hover:text-accent"
+              className="transition-colors hover:text-primary/70"
             >
               {link.label}
             </Link>
@@ -47,12 +45,12 @@ export default function Header() {
       </div>
       {isMenuOpen && (
         <div className="md:hidden">
-          <nav className="flex flex-col items-center gap-6 py-6 text-lg font-medium">
+          <nav className="flex flex-col items-center gap-6 py-6 text-lg font-medium uppercase tracking-wider">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="transition-colors hover:text-accent"
+                className="transition-colors hover:text-primary/70"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.label}
