@@ -6,9 +6,9 @@ import { Hero } from "@/components/sections/hero";
 import { Resume } from "@/components/sections/resume";
 import { Gallery } from "@/components/sections/gallery";
 import { FeaturedMedia } from "@/components/sections/featured-media";
-import { AiTool } from "@/components/sections/ai-tool";
 import { Contact } from "@/components/sections/contact";
 import { Fade } from "react-awesome-reveal";
+import { Discipline } from "@/components/sections/discipline";
 
 export default function Home() {
   return (
@@ -23,10 +23,10 @@ export default function Home() {
           <Gallery />
         </Fade>
         <Fade triggerOnce>
-          <FeaturedMedia />
+          <Discipline />
         </Fade>
         <Fade triggerOnce>
-          <AiTool />
+          <FeaturedMedia />
         </Fade>
         <Fade triggerOnce>
           <Contact />
